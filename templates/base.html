@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title>{{title}}</title>
+	<link type="text/css" href="{% static 'hr_site/css/styles.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+<div class="DashboardDesktop">
+    <div class="Sidebar">
+
+    <div class="Name">HR СИСТЕМА</div>
+
+    {% if request.user.is_authenticated %}
+		{% if request.user.role == "MANAGER" %}
+            <div class="MenuItem"><a href="{% url 'man_projects' %}">Проекты</a></div>
+            <div class="MenuItem"><a href="{% url 'statistics' %}">Статистика</a></div>
+        {% else %}
+            <div class="MenuItem"><a href="{% url 'empl_tasks' %}">Задачи</a></div>
+        {% endif %}
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        <div class="MenuItem">{{user.username}} | <a href="{% url 'logout' %}">Выйти</a></div>
+        {% else %}
+        <div class="MenuItem"><a href="{% url 'login' %}">Войти</a></div>
+    {% endif %}
+
+    </div>
+
+<div class="Content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+</div>
+</body>
+
+</html>

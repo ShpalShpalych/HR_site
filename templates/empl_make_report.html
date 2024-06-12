@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Создать Отчет</title>
+</head>
+<body>
+{% block content %}
+
+<form action="make_report" method="post">
+        {% csrf_token %}
+
+        <label for="report">Отчет:</label>
+        <br>
+        <textarea spellcheck="false" name="report" id="report" required></textarea>
+        <br>
+
+        <label for="end">Дата окончания:</label>
+        <br>
+        <input type="date" id="end" name="end" min="2023-01-01" max="2026-01-01" required/>
+        <br>
+
+        <br>
+        <input type="submit" value="Отправить">
+</form>
+
+{% endblock %}
+</body>
+</html>

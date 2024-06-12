@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Добавить Проект</title>
+</head>
+<body>
+{% block content %}
+
+<form action="add_project" method="post">
+        {% csrf_token %}
+        <label for="title">Название проекта:</label>
+        <br>
+        <input class="inpt-area" name="title" id="title" required>
+
+        <br>
+
+        <label for="description">Описание:</label>
+        <br>
+        <textarea spellcheck="false" name="description" id="description"></textarea>
+
+        <br>
+
+        <label for="start">Дата начала:</label>
+        <br>
+        <input type="date" id="start" name="start" value="2024-06-01" min="2023-01-01" max="2026-01-01" />
+
+        <br>
+
+        <label for="end">Дата окончания:</label>
+        <br>
+        <input type="date" id="end" name="end" value="2024-10-01" min="2023-01-01" max="2026-01-01" />
+
+        <br>
+
+        <select class="minimal" id="docs" name="docs" required>
+            {% for doc in docs %}
+                <option id="{{ doc.id }}" value="{{ doc.id }}">{{ doc.title }}</option>
+            {% endfor %}
+        </select>
+
+        <br>
+        <br>
+
+        <input type="submit" value="Добавить" class="inpt-btn">
+</form>
+
+{% endblock %}
+</body>
+</html>

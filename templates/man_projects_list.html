@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Список Задач</title>
+</head>
+<body>
+{% block content %}
+
+<div class="Title">
+    <p style="text-align:left;">
+        Активные проекты
+    </p>
+</div>
+
+<br><br>
+
+<div class="TaskDetails">
+    <div class="CreateProject"><a href="{% url 'man_project_add_page' %}">Создать проект</a></div>
+</div>
+
+<br><br>
+
+
+    <div class="searchArea">
+        <form action="search" method="post">
+            {% csrf_token %}
+            <button type="submit" tabindex="2">Поиск</button>
+            <div>
+                <input type="text" name="search_text" id="search_text" tabindex="1" />
+            </div>
+        </form>
+    </div>
+
+
+{% for id, title, status, deadline in projects %}
+    <div class="Project">
+        <button class="button-project">
+
+            <a href="{{ id }}/">
+                <p>
+                    <b>{{ title }}</b>
+                    <span style="float:right;">
+                        {{ deadline }}  | {{ status }}
+                    </span>
+                </p>
+            </a>
+
+            <span style="float:right;">
+                <a href="{{ id }}/edit/">Редактировать</a> <a href="{{ id }}/delete">Удалить</a>
+            </span>
+
+        </button>
+    </div>
+
+{% endfor %}
+
+
+{% endblock %}
+</body>
+</html>

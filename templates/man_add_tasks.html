@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Добавить Задачу в Проект</title>
+</head>
+<body>
+{% block content %}
+
+<form action="add_task" method="post">
+        {% csrf_token %}
+
+        <label for="title">Название задачи:</label>
+        <br>
+        <input class="inpt-area" name="title" id="title" required>
+
+        <br>
+
+        <label for="description">Описание:</label>
+        <br>
+        <textarea spellcheck="false" name="description" id="description"></textarea>
+
+        <br>
+
+        <label for="start">Дата начала:</label>
+        <br>
+        <input type="date" id="start" name="start" value="2024-06-01" min="2023-01-01" max="2026-01-01" />
+
+        <br>
+
+        <label for="end">Дата окончания:</label>
+        <br>
+        <input type="date" id="end" name="end" value="2024-10-01" min="2023-01-01" max="2026-01-01" />
+
+        <br>
+        <input type="submit" value="Добавить">
+</form>
+
+{% endblock %}
+</body>
+</html>

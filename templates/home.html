@@ -1,0 +1,16 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+
+{% if not request.user.is_authenticated %}
+    Добро пожаловать в Систему Управления Персоналом
+    <br>
+    Войдите или зарегистрируйтесь, чтобы продолжить
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Информация о Задаче</title>
+</head>
+<body>
+{% block content %}
+
+
+{% for title, description, deadline, status in task_info %}
+<div class="Title">
+    <div class="Title">
+        <p style="text-align:left;">
+            {{ title }}
+            <span style="float:right;">
+                {{ status }}
+            </span>
+        </p>
+    </div>
+
+</div>
+
+
+<div class="TaskDetails">
+    Описание: {{ description }}
+
+    <br>
+
+    Дедлайн: {{ deadline }}
+
+    <br>
+    <br>
+
+     <div class="CreateProject"><a href="{% url 'man_project_info' id=proj_id%}">К проекту</a></div>
+
+</div>
+{% endfor %}
+
+
+<form action="" method="post">
+        {% csrf_token %}
+        <label for="employees">Выберите сотрудника:</label>
+        <br>
+        <select class="minimal" id="employees" name="employees">
+        {% for employee in employees_list %}
+                <option value="{{ employee.first_name }} {{ employee.last_name }}">{{ employee.first_name }} {{ employee.last_name }}</option>
+        {% endfor %}
+        </select>
+
+        <br>
+        <br>
+
+        <label for="start">Дата начала:</label>
+        <br>
+        <input type="date" id="start" name="start" value="2024-06-01" min="2023-01-01" max="2026-01-01" />
+
+        <br>
+
+        <label for="end">Дата окончания:</label>
+        <br>
+        <input type="date" id="end" name="end" value="2024-10-01" min="2023-01-01" max="2026-01-01" />
+
+        <br>
+        <input type="submit" value="Добавить">
+</form>
+
+<br><br>
+
+<div class="Project">
+    <br><b>Сотрудники</b><br>
+</div>
+
+
+<div class="Project">
+    {% for t_empl_id, first, last, empl_id in employees %}
+    <button class="button-project">
+        <p style="text-align:left;">
+            <a href="read_report/{{ empl_id }}/">
+                {{ first }} {{ last }}
+            </a>
+
+            <span style="float:right;">
+                <a href="delete/{{ t_empl_id }}">
+                    удалить
+                </a>
+            </span>
+        </p>
+    </button>
+    {% endfor %}
+</div>
+
+{% endblock %}
+</body>
+</html>

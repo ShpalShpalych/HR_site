@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Статистика</title>
+</head>
+<body>
+{% block content %}
+
+
+<div class="Title">
+    <p style="text-align:left;">
+        {{ department }} | Задачи
+        <br>
+        <br>
+        В процессе : {{ in_progress }}
+        <br>
+        Закончены: {{ done }}
+        <br>
+        {% if done_count %}
+            Процент исполнения: {{ done_count }}
+        {% else %}
+            Нет задач
+        {% endif %}
+    </p>
+</div>
+
+{% endblock %}
+</body>
+</html>

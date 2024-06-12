@@ -1,0 +1,432 @@
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto';
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #FAFAFA; /* Set body background color */
+        }
+
+        .DashboardDesktop {
+            width: 100%; /* Full height of the viewport */
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+        }
+
+        .Sidebar {
+            width: 20%;
+            height: 100%;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        .Sidebar .Name {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .Sidebar .MainMenu {
+            font-size: 20px;
+            font-weight: 500;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .Sidebar .MenuItem {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .Sidebar .MenuItem a {
+            color: black ;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .Sidebar .MenuItem a:hover {
+            color: #FF5151;
+        }
+
+        .Content {
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 0px; /* Further decreased gap between projects */
+            background-color: #FAFAFA; /* Match the background color */
+        }
+
+        .Content .Title {
+            font-size: 30px;
+            font-weight: 600; /* Made the title bold */
+        }
+
+        .Content .Project {
+            border-radius: 6px;
+            padding: 20px;
+            background-color: #FAFAFA; /* Match the background color */
+            border: none; /* Remove border */
+        }
+
+        .Content .Project .ProjectName {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .Content .Project .Deadline {
+            font-size: 16px;
+            color: #686868;
+        }
+
+        .Content .CreateProject {
+            background-color: #FF5151;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px; /* Reduced font size by 1 point */
+            width: calc(100% - 40px); /* Adjusted width */
+        }
+
+        .Content .CreateProject a {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .Content .button-project {
+            background-color: #FFFFFF; /* White background for the buttons */
+            color: black;
+            padding: 15px 32px;
+            text-align: left;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            width: calc(100% - 40px); /* Adjusted width to match "Create Project" button */
+            transition-duration: 0.3s;
+            border: none; /* Remove the border */
+            box-shadow: none; /* Remove shadow */
+        }
+
+        .Content .button-project:hover {
+            background-color: #f1f1f1;
+        }
+
+        .Content .button-project a {
+            color: black !important;
+            text-decoration: none;
+            width: 100%;
+            display: block;
+        }
+
+
+.SignInContainer {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FAFAFA;
+        }
+
+        .SignInBox {
+            width: 300px;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .SignInBox h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .SignInBox label {
+            font-size: 16px;
+            font-weight: 400;
+            color: black;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        .SignInBox input[type="text"],
+        .SignInBox input[type="password"] {
+            width: 100% !important;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .SignInBox input[type="text"]:focus,
+        .SignInBox input[type="password"]:focus {
+            border-color: #FF5151;
+            outline: none;
+        }
+
+        .SignInBox input[type="submit"] {
+            width: 100% !important;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #FF5151;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .SignInBox input[type="submit"]:hover {
+            background-color: #e04a4a;
+        }
+
+
+
+
+
+        .Content input[type="text"],
+        .Content input[type="date"] {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .Content input[type="text"]:focus,
+        .Content input[type="date"]:focus {
+            border-color: #FF5151;
+            outline: none;
+        }
+
+        .Content input[type="submit"] {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #FF5151;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .Content input[type="submit"]:hover {
+            background-color: #e04a4a;
+        }
+
+
+        .Content textarea {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+
+        .Content textarea:focus {
+            border-color: #FF5151;
+            outline: none;
+        }
+
+        .inpt-area {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .inpt-area:focus {
+            border-color: #FF5151;
+            outline: none;
+        }
+
+
+
+select {
+
+  /* styling */
+  background-color: white;
+  border: thin solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  width: 50%;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #ccc 50%),
+    linear-gradient(135deg, #ccc 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, #FF5151 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #FF5151 50%),
+
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: #FF5151;
+  outline: 0;
+}
+
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+
+.Content .SearchButton {
+            background-color: #FF5151;
+            color: #ffffff;
+            text-align: center;
+            padding: 11px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px; /* Reduced font size by 1 point */
+            width: 250px ; /* Adjusted width */
+        }
+
+        .Content .SearchButton a {
+            color: white !important;
+            text-decoration: none;
+        }
+
+.Content .SearchInput {
+            width: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+
+.searchArea button, .searchArea .inputDiv, .searchArea input {
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-right: 60px;
+}
+
+
+.searchArea input {
+float: right;
+            width: 150px !important;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: none;
+            margin-bottom: 20px;
+            margin-right: 10px;
+}
+
+.searchArea button {
+float: right;
+            background-color: #FF5151;
+            border: none;
+            color: #ffffff;
+            text-align: center;
+            padding: 11px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px; /* Reduced font size by 1 point */
+            width: 80px !important; /* Adjusted width */
+        }
+
+.searchArea button a {
+float: right;
+
+            color: white !important;
+            text-decoration: none;
+        }
+
+.Content .TaskDetails {
+            border-radius: 6px;
+            padding: 20px;
+            background-color: #FAFAFA;
+            border: none;
+        }
+
+        .Content .TaskDetails .TaskName {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .Content .TaskDetails .Deadline {
+            font-size: 16px;
+            color: #686868;
+        }
+
+
+.Content a {
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+.Content a:hover {
+            color: #FF5151;
+        }

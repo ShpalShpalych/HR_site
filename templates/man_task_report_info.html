@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Отчет о Задаче</title>
+</head>
+<body>
+{% block content %}
+
+<br><br>
+
+{% if task_report %}
+{% for report_id, report, end in task_report %}
+    {{ report }}
+
+    <br>
+
+    Дата: {{ end }}
+
+    <div class="Title">
+        <div class="CreateProject"><a href="print/{{ report_id }}">Печать</a></div>
+        <br>
+    </div>
+
+{% endfor %}
+
+{% else %}
+
+НЕТ ОТЧЕТОВ
+
+{% endif %}
+
+<div class="TaskDetails">
+    <div class="CreateProject"><a href="{% url 'man_task_info' proj_id=proj_id task_id=task_id %}">К задаче</a></div>
+</div>
+
+{% endblock %}
+</body>
+</html>

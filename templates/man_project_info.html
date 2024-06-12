@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Информация о Проекте</title>
+</head>
+<body>
+{% block content %}
+
+{% for title, description, deadline, status, doc in project %}
+<div class="Title">
+    <div class="Title">
+        <p style="text-align:left;">
+            {{ title }}
+            <span style="float:right;">
+                {{ status }}
+            </span>
+        </p>
+    </div>
+
+</div>
+
+
+<div class="TaskDetails">
+    Описание: {{ description }}
+
+    <br>
+    <br>
+
+    Дедлайн: {{ deadline }}
+
+    <br>
+    <br>
+
+    {% if doc %}
+        <a href="doc/{{ doc }}">Прикрепленный документ</a>
+    {% endif %}
+
+</div>
+{% endfor %}
+
+<br><br>
+
+<div class="CreateProject"><a href="add_task/">Добавить Задачу</a></div>
+
+<br><br>
+
+<div class="searchArea">
+        <form action="search" method="post">
+            {% csrf_token %}
+            <button type="submit" tabindex="2">Поиск</button>
+            <div>
+                <input type="text" name="search_text" id="search_text" tabindex="1" />
+            </div>
+        </form>
+</div>
+
+
+{% for task_id, task_title, task_status, task_deadline in tasks %}
+    <div class="Project">
+        <button class="button-project">
+
+            <a href="task/{{ task_id }}/">
+                <p>
+                    <b>{{ task_title }}</b>
+                    <span style="float:right;">
+                        {{ task_deadline }} | {{ task_status }}
+                    </span>
+                </p>
+            </a>
+
+            <span style="float:right;">
+                <a href="edit/{{ task_id }}/">
+                    редактировать
+                </a>
+                <a href="delete/{{ task_id }}">
+                    удалить
+                </a>
+            </span>
+
+        </button>
+    </div>
+{% endfor %}
+
+
+{% endblock %}
+</body>
+</html>

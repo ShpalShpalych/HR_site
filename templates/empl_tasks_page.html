@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Список Задач</title>
+</head>
+<body>
+{% block content %}
+
+
+{% for id, title, status, deadline in tasks %}
+    <div class="Project">
+        <button class="button-project">
+
+            <a href="task/{{ id }}/">
+                <p>
+                    <b>{{ title }}</b>
+                    <span style="float:right;">
+                        {{ deadline }}  | {{ status }}
+                    </span>
+                </p>
+            </a>
+
+        </button>
+    </div>
+
+{% endfor %}
+
+
+{% endblock %}
+</body>
+</html>

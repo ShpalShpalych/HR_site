@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>Список Задач</title>
+</head>
+<body>
+{% block content %}
+
+{% for id, title, description, status, start, end in task_info %}
+<div class="Title">
+    <div class="Title">
+        <p style="text-align:left;">
+            {{ title }}
+            <span style="float:right;">
+                {{ status }}
+            </span>
+        </p>
+    </div>
+</div>
+
+<div class="TaskDetails">
+    Описание: {{ description }}
+    <br><br>
+    Срок выполнения: {{ end }}
+</div>
+
+<div class="CreateProject"><a href="make_report/">Создать Отчет</a></div>
+{% endfor %}
+
+{% endblock %}
+</body>
+</html>
